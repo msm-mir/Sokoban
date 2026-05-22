@@ -1,1 +1,5 @@
 Phase1.pdf
+/__pycache__/
+/env/
+/.idea/
+/.venv/

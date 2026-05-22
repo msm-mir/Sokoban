@@ -4,7 +4,7 @@ import time
 import os
 from env.levels import levels
 from env.sokoban import SokobanGame, PUSH_COST, MOVE_COST
-from search import bfs_solve, ids_solve, ucs_solve, astar_solve
+from src.search import bfs_solve, ids_solve, ucs_solve, astar_solve
 
 #######################################################
 #                DONT CHANGE THIS PART                #
@@ -46,7 +46,7 @@ class SokobanGUI:
         self.load_level(self.current_level_idx)
 
     def load_images(self):
-        img_dir = "env/img"
+        img_dir = "../env/img"
         image_files = {
             '#': 'wall1.png',
             ' ': 'space1.png',
@@ -101,7 +101,7 @@ class SokobanGUI:
         height = self.game.height * TILE_SIZE + panel_height
         self.screen = pygame.display.set_mode((width, height))
 
-        bg_path = os.path.join('env/img', "background.png")
+        bg_path = os.path.join('../env/img', "background.png")
         try:
             self.background = pygame.image.load(bg_path).convert()
         except FileNotFoundError as error:
@@ -129,7 +129,7 @@ class SokobanGUI:
         }
 
         for key, filename in btn_files.items():
-            path = os.path.join('env/img', filename)
+            path = os.path.join('../env/img', filename)
             try:
                 img = pygame.image.load(path).convert_alpha()
                 img = pygame.transform.scale(img, (40, 25))
